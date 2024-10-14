@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Navya R</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            text-decoration: none;
+            list-style: none;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color:#F4F4EC;
+        }
+
+        .hero {
+            font-family: 'Times New Roman', Times, serif;
+            color: #800000;
+            text-align: center;
+            font-size: 100px;
+            font-style: normal;
+            margin: 80px 0;
+        }
+
+        .gallery {
+            padding: 50px 0;
+            border-radius: 10px;
+        }
+
+        .gallery h2 {
+            font-size: 3.5rem;
+            color: #600000;
+            text-align: center;
+        }
+
+        .gallery h1 {
+            font-size: clamp(20px, 2.5vw, 36px);
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .gallery img {
+            display: block;
+            width: 100%;
+            max-width: 100%;
+            margin-bottom: 1.5rem;
+        }
+
+        .gallery ul {
+            padding: 0;
+            margin: 0;
+            display: block;
+            width: 100%;
+            overflow-y: hidden;
+            overflow-x: auto;
+            white-space: nowrap;
+            text-align: center;
+            scroll-behavior: smooth;
+            border-radius: 12px;
+            background-color: #F4F4EC;
+        }
+
+        .gallery li {
+            position: sticky;
+            left: 0;
+            width: min(50vw, 350px);
+            display: inline-block;
+            text-align: center;
+            background-color: #04445F;
+            color: #C8D5CB;
+            padding-bottom: 1.5rem;
+            font-size: clamp(18px, 2.5vw, 22px);
+            margin-left: -4px;
+        }
+
+        .hero h1 {
+            font-size: 5rem;
+            font-style: italic;
+            text-align: left;
+            color: #600000;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            text-align: right;
+            color: #600000;
+            margin-top: 20px;
+        }
+
+        .container {
+            justify-content: center;
+            max-height: 1080px;
+            max-width: 1920px;
+            padding: 100px;
+        }
+
+        .imgcontainer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 100%;
+            max-height: 600px;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+
+        .imgcontainer img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: cover;
+        }
+
+        nav {
+            width: 100%;
+            height: 80px;
+            background: #04445F;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 50px;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+        }
+
+        label.logo {
+            color: #FFF;
+            font-family: "Times New Roman";
+            font-size: 30px;
+            font-weight: 400;
+            padding: auto;
+        }
+
+        nav ul {
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 10px;
+            line-height: 80px;
+        }
+
+        nav ul li a {
+            color: #FFF;
+            font-size: 18px;
+            padding: 7px 15px;
+            border-radius: 3px;
+            text-transform: uppercase;
+            transition: background-color 0.5s ease;
+        }
+
+        nav ul li a:hover, a.active {
+            background-color: #C8D5CB;
+            color: #04445F;
+        }
+
+        .checkbtn {
+            font-size: 30px;
+            color: white;
+            float: right;
+            line-height: 80px;
+            cursor: pointer;
+            display: none;
+        }
+
+        #check {
+            display: none;
+        }
+
+        footer {
+            background-color: #D7E4D0;
+            padding: 20px;
+            border-top: 3px solid #04445F;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .footer-container {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1920px;
+            margin: 0 auto;
+        }
+
+        footer p {
+            color: #04445F;
+            font-size: 16px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icons a {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+        }
+
+        .social-icons img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .sec2, .sec1 {
+            width: 100%;
+            height: 100vh;
+            color: #600000;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .sec2 > h1 {
+            animation: revealing 1s ease-in-out forwards;
+            margin: 0px;
+        }
+
+        @keyframes revealing {
+            from {
+                color: gray;
+                margin-left: 100vw;
+                filter: blur(50px);
+                opacity: 0.5;
+            }
+            to {
+                margin: 0px;
+                filter: blur(0px);
+                opacity: 1;
+            }
+        }
+
+        
+        .portfolio-section {
+            display: flex;
+            justify-content: center;
+            margin: 80px 0;
+        }
+
+        .portfolio-container {
+            width: 1920px;
+            height: 700px;
+            display: flex;
+        }
+
+        .left-side, .right-side {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            transition: all 0.4s ease;
+            color: #C8D5CB;
+            font-size: 12rem;
+            font-weight: bold;
+        }
+
+        .left-side {
+            background-color: #04445F; /* Dark blue */
+            justify-content: right;
+        }
+
+        .right-side {
+            background-color: #f3f3eb; /* Light cream */
+            color: #04445F;
+            justify-content: left;
+        }
+
+        .portfolio-container:hover .left-side {
+            background-color: #f3f3eb;
+            color: #04445F;
+        }
+
+        .portfolio-container:hover .right-side {
+            background-color: #04445F;
+            color: #d3dcd9;
+        }
+
+        .text {
+            pointer-events: none;
+        }
+
+        @media (max-width: 920px) {
+            nav ul {
+                position: fixed;
+                width: 100%;
+                height: 100vh;
+                top: 80px;
+                left: -100%;
+                background: #04445F;
+                flex-direction: column;
+                text-align: center;
+                transition: all 0.5s ease;
+            }
+
+            nav ul li {
+                display: block;
+                margin: 50px 0;
+                line-height: 30px;
+            }
+
+            nav ul li a {
+                font-size: 24px;
+            }
+
+            nav ul li a:hover, a.active {
+                background: none;
+                color: #C8D5CB;
+            }
+
+            .checkbtn {
+                display: block;
+            }
+
+            #check:checked ~ ul {
+                left: 0;
+            }
+
+            .hero {
+                margin: 50px 0;
+            }
+
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .gallery h2 {
+                font-size: 3rem;
+                color: #600000;
+                text-align: center;
+            }
+
+            footer {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                padding: 10px;
+            }
+
+            .footer-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+
+            footer p {
+                font-size: 14px;
+                margin: 5px 0;
+            }
+
+            .social-icons {
+                gap: 10px;
+                justify-content: center;
+            }
+            .portfolio-container {
+                flex-direction: column;
+        
+            }
+        }
+    </style>
+
+</head>
+<body>
+    <nav>
+        <label class="logo">Navya R</label>
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">&#9776;</label>
+        <ul class="nav-links">
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="page2.html">About</a></li>
+            <li><a href="#">Work</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="portfolio-section">
+            <div class="portfolio-container">
+                <div class="left-side text">PORT</div>
+                <div class="right-side text">FOLIO</div>
+            </div>
+        </div>
+        <div class="container">
+            <h1>Hello and Welcome to My Portfolio</h1>
+                <h1>I'm Navya,</h1>
+                <p>a Bengaluru-based Designer exploring the realms of UI/UX, branding, graphic, and product design—just a little bit of everything!</p>
+        </div>
+    </section>
+
+
+    <section class="gallery">
+        <div class="container">
+            <h2>Gallery</h2>
+            <br>
+            <br>
+            <br>
+            <br>
+            <ul>
+                <li> <img src="Frame 2.jpg" alt="seeyou image" />SeeYou</li>
+                <li> <img src="Frame 8.jpg" alt="pookieboo image" />Pookieboo</li>
+                <li> <img src="Frame 1.jpg" alt="cortex image " />Cortex</li>
+                <li> <img src="Frame 3.jpg" alt="analogy image" />Analogy</li>
+                <li> <img src="Frame 5.jpg" alt="trackaway image " />Track Away</li>
+                <li> <img src="Frame 6.jpg" alt="state.io image " />State.io</li>
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <p>2024 Navya R</p>
+            <p>Crave, Create, Collaborate.</p>
+            <div class="social-icons">
+                <a href="https://www.behance.net/navyaraghunath1" target="_blank"><img src="bh.png" alt="Behance"></a>
+                <a href="https://www.linkedin.com/in/navya-raghunath-981847332" target="_blank"><img src="in.png" alt="LinkedIn"></a>
+                <a href="https://www.instagram.com/nav.yeh?igsh=ZXh2aTJxejNpYm1v" target="_blank"><img src="ig.png" alt="Instagram"></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

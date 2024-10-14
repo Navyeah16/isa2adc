@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Navya R</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            text-decoration: none;
+            list-style: none;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #F4F4EC;
+        }
+        
+        .hero-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-top: 100px;
+            margin: 20px;
+            gap: 20px;
+        }
+
+        .botcontainer {
+            justify-content: center;
+            max-height: 1080px;
+            max-width: 1920px;
+            padding: 0 100px;
+        }
+
+        .image-container {
+            flex-shrink: 0;
+        }
+
+        .image-container img {
+            width: 350px;
+            height: 350px;
+            object-fit: cover;
+        }
+
+        .text-container {
+            max-width: 600px;
+        }
+
+        .text-container h1 {
+            font-size: 7em;
+            color: #800000;
+        }
+
+        .text-container p {
+            display: flex;
+            justify-content: center;
+            font-size: 1.2em;
+            color: #800000;
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .bio-intro {
+            margin-top: 20px;
+        }
+
+        .bio-intro p {
+            font-size: 1.1em;
+            color: #04445F;
+            line-height: 1.6;
+        }
+
+        .see-work {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 20px;
+            background-color: #04445F;
+            color: white;
+            text-decoration: none;
+            border-radius: 20px;
+            font-size: 1.1em; 
+        }
+
+        .see-work:hover {
+            background-color: #D7E4D0;
+            color: #04445F;
+        }
+
+        nav {
+            width: 100%;
+            height: 80px;
+            background: #04445F;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 50px;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+        }
+
+        label.logo {
+            color: #FFF;
+            font-family: "Times New Roman";
+            font-size: 30px;
+            font-weight: 400;
+            padding: auto;
+        }
+
+        nav ul {
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 10px;
+            line-height: 80px;
+        }
+
+        nav ul li a {
+            color: #FFF;
+            font-size: 18px;
+            padding: 7px 15px;
+            border-radius: 3px;
+            text-transform: uppercase;
+            transition: background-color 0.5s ease;
+        }
+
+        nav ul li a:hover, a.active {
+            background-color: #C8D5CB;
+            color: #04445F;
+        }
+
+        .checkbtn {
+            font-size: 30px;
+            color: white;
+            float: right;
+            line-height: 80px;
+            cursor: pointer;
+            display: none;
+        }
+
+        #check {
+            display: none;
+        }
+
+        footer {
+            background-color: #D7E4D0;
+            padding: 20px;
+            border-top: 3px solid #04445F;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .footer-container {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1920px;
+            margin: 0 auto;
+        }
+
+        footer p {
+            color: #04445F;
+            font-size: 16px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icons a {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+        }
+
+        .social-icons img {
+            width: 100%;
+            height: 100%;
+        }
+
+        h2 {
+            font-size: 3em;
+            color: #800000;
+            text-align: center;
+            margin-top: 50px;
+            margin-bottom: 40px;
+        }
+
+        /* Adjust table container */
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-bottom: 50px;
+        }
+
+        /* Adjust table layout */
+        .table {
+            width: 60%;
+            border-spacing: 20px;
+        }
+
+        .row {
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        .cell-title {
+            font-weight: bold;
+            font-size: 1.8em;
+            color: #2C3E50;
+            width: 30%;
+            text-align: right;
+            padding-right: 30px;
+        }
+
+        .cell-content {
+            font-size: 1.2em;
+            color: #34495E;
+            line-height: 1.8em;
+            text-align: left;
+            width: 70%;
+        }
+        .skills-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+
+        .skill {
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .skill:hover {
+            transform: scale(1.1);
+        }
+
+        .skill img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 10px;
+        }
+
+        .progress-bar {
+            height: 6px;
+            width: 80px;
+            background-color: #D3D3D3;
+            border-radius: 5px;
+            margin: 5px auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background-color: #2C3E50;
+            border-radius: 5px;
+            width: 0;
+        }
+
+        .skill:hover .progress-fill {
+            width: 100%;
+            transition: width 0.5s linear;
+        }
+
+        .skill .percentage {
+            margin-top: 5px;
+            font-size: 1.2em;
+            color: #34495E;
+        }
+
+        @keyframes highlight {
+	to {
+		background-position: 0;
+	}
+}
+
+mark {
+	animation: highlight linear forwards;
+	animation-timeline: view(60% 20%);
+	background: linear-gradient(
+		to right,
+		oklch(0.89 0.04 140 / 1) 50%,  
+		oklch(0.89 0.04 140 / 0) 50%   
+	);
+	background-position: 100%;
+	background-size: 200% 100%;
+	border-radius: 0.125rem;
+	padding-inline: 0.125rem;
+}
+
+
+        @media (max-width: 920px) {
+            nav ul {
+                position: fixed;
+                width: 100%;
+                height: 100vh;
+                top: 80px;
+                left: -100%;
+                background: #04445F;
+                flex-direction: column;
+                text-align: center;
+                transition: all 0.5s ease;
+            }
+
+            nav ul li {
+                display: block;
+                margin: 50px 0;
+                line-height: 30px;
+            }
+
+            nav ul li a {
+                font-size: 24px;
+            }
+
+            nav ul li a:hover, a.active {
+                background: none;
+                color: #C8D5CB;
+            }
+
+            .checkbtn {
+                display: block;
+            }
+
+            #check:checked ~ ul {
+                left: 0;
+            }
+
+            .hero-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .image-container {
+                margin: 0 0 20px 0;
+            }
+
+            .image-container img {
+                width: 300px;
+                height: 300px;
+                object-fit: cover;
+            }
+
+            .text-container h1 {
+                font-size: 4.5em;
+                color: #800000;
+            }
+
+            .text-container p {
+                font-size: 1em;
+                color: #800000;
+                margin-top: 10px;
+            }
+
+            footer {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                padding: 10px;
+            }
+
+            .footer-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+
+            footer p {
+                font-size: 14px;
+                margin: 5px 0;
+            }
+
+            .social-icons {
+                gap: 10px;
+                justify-content: center;
+            }
+            .container {
+                flex-direction: column;
+                padding: 0 20px;
+            }
+
+            .table {
+                width: 100%;
+            }
+
+            .row {
+                display: block;
+                margin-bottom: 20px;
+            }
+
+            .cell-title,
+            .cell-content {
+                display: block;
+                width: 100%;
+                text-align: left;
+            }
+
+            .cell-title {
+                font-size: 1.6em;
+                margin-bottom: 10px;
+            }
+
+            .cell-content {
+                font-size: 1.1em;
+            }
+            
+            .skill img {
+                width: 50px;
+                height: 50px;
+            }
+            .progress-bar {
+                width: 50px;
+            }
+            .skill .percentage {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <label class="logo">Navya R</label>
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">&#9776;</label>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#about" class="active">About</a></li>
+            <li><a href="#">Work</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero-container" id="about">
+        <div class="image-container">
+            <img src="me.png" alt="profile-image">
+        </div>
+        <div class="text-container">
+            <h1>Sunsets & Ocean</h1>
+            <p>Two things I love most: Sunsets remind me that every ending can be beautiful and hopeful, 
+                while the sea inspires me with its calm and depth.</p>
+        </div>
+    </section>
+
+    <div class="botcontainer">
+        <br>
+        <div class="bio-intro">
+            <p>Hello, I’m Navya! Here’s a little bit about me. 
+                As a child, <mark>I loved exploring</mark> different crafts and art mediums. 
+                I believe self-expression is essential, and through my art and dance, I found freedom. 
+                This passion inspired me to pursue design as a career, allowing me to <mark>create meaningful work.</mark> 
+                I <mark>never limit myself</mark> to one thing—I enjoy diving into new areas, staying curious, and learning constantly. 
+                This mindset has opened up countless experiences and opportunities, shaping the person I am today. 
+                I’m on a <mark>journey to learn, create, and grow,</mark> and here’s a glimpse of my work for you to explore.</p>
+            <br>
+            <a href="#" class="see-work">See Work</a>
+        </div>
+    </div>
+
+    <br><br>
+    
+    <h2>Interests</h2>
+    <div class="container">
+        
+        <div class="table">
+            <div class="row">
+                <div class="cell-title">UI/UX DESIGN</div>
+                <div class="cell-content">
+                    I'm passionate about UI/UX design because it allows me to blend creativity with problem-solving, crafting intuitive experiences that truly connect with users.
+                </div>
+            </div>
+            <div class="row">
+                <div class="cell-title">BRANDING</div>
+                <div class="cell-content">
+                    I love branding because it gives me the opportunity to shape identities, tell stories, and create lasting impressions through visual design that connects deeply with people.
+                </div>
+            </div>
+            <div class="row">
+                <div class="cell-title">SERVICE DESIGN</div>
+                <div class="cell-content">
+                    I find it very fascinating because it blends creativity and strategy to improve the way people experience services.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h2>Technical Skills</h2>
+
+    <div class="skills-section">
+        <div class="skill">
+            <img src="Photoshop.png" alt="Photoshop">
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 90%;"></div>
+            </div>
+            <div class="percentage">90%</div>
+        </div>
+
+        <div class="skill">
+            <img src="Illustrator.png" alt="Illustrator">
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 95%;"></div>
+            </div>
+            <div class="percentage">95%</div>
+        </div>
+
+        <div class="skill">
+            <img src="After effects.png" alt="After Effects">
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 56%;"></div>
+            </div>
+            <div class="percentage">56%</div>
+        </div>
+
+        <div class="skill">
+            <img src="Figma.png" alt="Figma">
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 98%;"></div>
+            </div>
+            <div class="percentage">98%</div>
+        </div>
+
+        <div class="skill">
+            <img src="procreate.png" alt="Procreate">
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 80%;"></div>
+            </div>
+            <div class="percentage">80%</div>
+        </div>
+
+        <div class="skill">
+            <img src="notion.png" alt="Notion">
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 75%;"></div>
+            </div>
+            <div class="percentage">75%</div>
+        </div>
+    </div>
+
+
+    <footer>
+        <div class="footer-container">
+            <p>2024 Navya R</p>
+            <p>Crave, Create, Collaborate.</p>
+            <div class="social-icons">
+                <a href="https://www.behance.net/navyaraghunath1" target="_blank"><img src="bh.png" alt="Behance"></a>
+                <a href="https://www.linkedin.com/in/navya-raghunath-981847332" target="_blank"><img src="in.png" alt="LinkedIn"></a>
+                <a href="https://www.instagram.com/nav.yeh?igsh=ZXh2aTJxejNpYm1v" target="_blank"><img src="ig.png" alt="Instagram"></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
